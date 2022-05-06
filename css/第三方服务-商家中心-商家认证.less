@@ -1,0 +1,80 @@
+// 主体区
+.mainbody-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+// 右侧主体
+div.mainbody-right{
+    width: 1220px;
+    // background-color: rgba(226, 228, 226, 0.904);
+    display: flex;
+    flex-direction: column;
+    // float: left;
+    .thead{
+        height: 60px;
+        width:600px;
+        .title{
+            float: left;
+            display: flex;
+            margin: 20px auto;
+            padding-left: 20px;
+            font-size: 25px;
+            color: #315b92;
+        }
+        .tips{
+            display: flex;
+            color: #315b92;
+            font-weight: 600;
+            margin: 30px;
+            padding-left: 20px;
+        }
+    }
+    table{
+        width: 100%;
+        // border-collapse: collapse;
+        td{
+            width: 600px;
+            height: 30px;
+            vertical-align: middle;
+        }
+        tbody > tr:nth-child(2n){
+            background-color: #bec2c5;
+        }
+        tr > td:nth-child(2n+1){
+            text-align: right;
+        }
+    }
+    
+    .clause-bar{
+        h2{
+            font-size: 25px;
+            color: #d05353;
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+        #infos{
+            width: 800px;
+            height: 250px;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 18px;
+            line-height: 25px;
+            background-color: rgb(228, 228, 228);
+            overflow: auto;
+            margin: 0 auto;
+        }
+        .btn-bar{
+            margin: 30px auto;
+            text-align: center;
+            font-size: 20px;
+            color: #d05353;
+
+            input{
+                height: 28px;
+                font-size: 18px;
+                line-height: 28px;
+            }
+        }
+    }
+}

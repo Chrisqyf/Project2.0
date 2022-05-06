@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重庆市长租公寓综合信息服务平台</title>
+    <!-- 引入重置样式表 -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- 引入公共样式表 -->
+    <link rel="stylesheet" href="./css/base.css">
+    <!-- 引入当前页面样式表 -->
+    <link rel="stylesheet" href="./css/fund.css">
+    <link rel="stylesheet" href="./css/rent-out-ca.css">
+    <!-- 引入图标字体库 -->
+    <link rel="stylesheet" href="./fa/css/all.min.css">
+    <!-- <link rel="icon" href="./img/icon/stage.ico"> -->
+
+    <script type="text/javascript" src="js/tools.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            
+            /* 
+                我们每一个菜单都是一个div
+                    当div具有collapsed这个类时，div就是折叠的状态
+                    当div没有这个类时，div就是展开的状态
+            */
+            
+            /* 
+                点击菜单，切换菜单的显示状态
+            */
+            
+            // 获取所有class为menuSpan的元素
+            var menuSpan = document.querySelectorAll(".menuSpan");
+            
+            // 定义一个变量，来保存当前打开的菜单
+            var openDiv = menuSpan[0].parentNode;
+
+            // 为span绑定单机响应函数
+            for(var i=0;i<menuSpan.length;i++){
+                menuSpan[i].onclick = function(){
+                    
+                    // this代表当前点击的span
+                    // 获取当前span的父元素
+                    var parentDiv = this.parentNode;
+                    
+                    // 切换菜单的显示状态
+                    toggleMenu(parentDiv);
+                    
+                    // 判断openDiv和parentDiv是否相同
+                    if(openDiv != parentDiv && !hasClass(openDiv,"collapsed")){
+                        // 打开菜单以后，关闭之前打开的菜单
+                        // 为了可以统一处理动画过渡效果，我们希望在这将addClass改为toggleClass
+                        // addClass(openDiv,"collapsed");
+                        // 此处toggleClass()不具有任何移除功能
+                        // toggleClass(openDiv,"collapsed");
+                        // 切换菜单的显示状态
+                        toggleMenu(openDiv);
+                    };
+                    
+                    // 修改openDiv为当前的菜单
+                    openDiv = parentDiv;
+                };
+            };
+            
+            
+            /* 
+                用来切换菜单折叠和显示状态
+            */
+            function toggleMenu(obj){
+                // 在切换类之前，获取元素的高度
+                var begin = obj.offsetHeight;
+                
+                // 关闭obj
+                toggleClass(obj,"collapsed");
+                
+                // 在切换类之后获取一个高度
+                var end = obj.offsetHeight;
+                
+                // 动画效果就是将高度从begin向end过渡
+                // 将元素的高度重置为begin
+                obj.style.height = begin + "px";
+                
+                // 执行动画，从begin向end过渡
+                move(obj,"height",end,10,function(){
+                    // 动画执行完毕，内联样式已经没有存在的意义了，删除之
+                    obj.style.height = "";
+                });
+                
+            };
+        };
+    </script>
+</head>
+<body>
+<!-- 顶部基本信息 -->
+    <!-- 外部容器 -->
+    <div class="top-info-wrapper">
+        <!-- 内部容器 -->
+        <div class="top-info w">
+            <!-- 左侧平台信息 -->
+            <div class="left-info">
+                <img src="./img/icon/a-realestatepropertyhandoverhouse.png">
+                <!-- 左侧名称 -->
+            <span>重庆市长租公寓综合信息服务平台</span>
+            </div>
+            <!-- 右侧服务电话 -->
+            <div class="right-tel">
+                <div class="icon">
+                    <img src="./img/icon/Slice5.png">
+                </div>
+                <div class="tel-num">
+                    <span>房协房地产租赁专业委员会：878***980</span>
+                    <span>长租公寓信息平台客服：877***244</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 头部导航条 -->
+    <!-- 外部容器 -->
+    <div class="header-wrapper">
+        <!-- 头部导航条 -->
+        <div class="header w">
+            <!-- 左侧服务 -->
+            <ul class="left-service">
+                <li><a href="index.html">首页</a></li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="个体服务-我要租房-房源展示.html">
+                        个体服务
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="个体服务-我要租房-房源展示.html">我要租房</a></li>
+                        <li><a href="个体服务-我要出租-入驻企业.html">我要出租</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="企业服务-用户认证-企业界面.html">
+                        企业服务
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="企业服务-用户认证-企业认证-1.html">用户认证</a></li>
+                        <li><a href="企业服务-经营支持-政策合作.html">经营支持</a></li>
+                        <li><a href="企业服务-房源管理-房源市场.html">房源管理</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="第三方服务-服务大厅.html">
+                        第三方服务
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="第三方服务-商家中心-商家认证.html">商家中心</a></li>
+                        <li><a href="第三方服务-服务大厅.html">服务大厅</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="法律帮助-维权须知.html" style="background-color: rgba(33, 143, 216 ,.8);">
+                        法律帮助
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="法律帮助-维权须知.html">维权须知</a></li>
+                        <li><a href="法律帮助-咨询通道-法律咨询.html">咨询通道</a></li>
+                        <li><a href="法律帮助-用户维权-用户维权.html">用户维权</a></li>
+                        <li><a href="法律帮助-合同管理-合同备案.html">合同管理</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="信息公示-行业新闻.html">
+                        信息公示
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="信息公示-行业新闻.html">行业新闻</a></li>
+                        <li><a href="信息公示-政策公开.html">政策公开</a></li>
+                        <li><a href="信息公示-市场公开.html">市场公示</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li><a href="服务指南.html">服务指南</a></li>
+            </ul>
+            <!-- 右侧用户信息 -->
+            <div class="user-info">
+                <!-- <i class="fas fa-user-circle"></i> -->
+                <img src="./img/icon/user.png">
+                <a href="登陆页面.html">登录</a>
+                <div class="line">|</div>
+                <a href="个人注册.html">注册</a>
+            </div>
+        </div>
+    </div>
+<!-- 中部主体 -->
+    <div class="mainbody-wrapper">
+    <!-- 侧边导航条 -->
+        <!-- 外部容器 -->
+        <div class="left-nav-wrapper">
+            <!-- 二级菜单 -->
+            <div id="my_menu" class="sdmenu">
+                <div>
+                    <span class="menuSpan">维权须知</span>
+                    <a href="法律帮助-维权须知.html" style="background-color: #3499dd; color: #fff;">注意事项</a>
+                </div>
+                <div class="collapsed">
+                    <span class="menuSpan">咨询通道</span>
+                    <a href="法律帮助-咨询通道-法律咨询.html">法律咨询</a>
+                </div>
+                <div class="collapsed">
+                    <span class="menuSpan">用户维权</span>
+                    <a href="法律帮助-用户维权-交易查询.html">交易查询</a>
+                    <a href="法律帮助-用户维权-用户维权.html">用户维权</a>
+                </div>
+                <div class="collapsed">
+                    <span class="menuSpan">合同管理</span>
+                    <a href="法律帮助-合同管理-合同备案.html">合同备案</a>
+                    <a href="法律帮助-合同管理-合同咨询.html">合同咨询</a>
+                </div>
+            </div>
+        </div>
+    <!-- 内容区 -->
+        <div class="caution-wrapper">
+            <h1>进行法律维权请注意这些内容！</h1>
+            <div class="caution-bar">
+                <h2>前言</h2>
+                <br><br>
+                <h3>如果长租公寓企业提供的房屋确有质量问题，消费者可以根据《消费者权益保护法》进行投诉或请求司法保护。房屋质量如果没有问题，而投诉者认为有质量问题，双方可以协商解决，或请求消费者协会调解。如果平台认为确属故意恶意投诉、旨在诋毁企业声誉，企业可以运用法律手段保护自己。企业在调查事件背景时，如发现这是一起有预谋的敲诈，有必要将证据收集起来，以被敲诈勒索为由请求公安部门介入调查。如果恶意投诉是由同业竞争者发起的，企业可以向相关的主管部门汇报，寻求政府出面维持竞争秩序。</h3>
+                <br><br>
+                <h3>根据《中华人民共和国消费者权益保护法》《市场监督管理投诉举报处理暂行办法》等法律法规和规章的规定，投诉人可以通过本平台就消费者权益争议向市场监管部门进行投诉。</h3>
+            </div>
+            <div class="caution-bar">
+                <h2>注意事项1</h2>
+                <br><br>
+                <h3>本平台所称的投诉，是指承租人为生活消费需要购买、使用商品或者接受服务，与经营者发生消费者权益争议，请求市场监管部门解决该争议的行为。</h3>
+            </div>
+            <div class="caution-bar">
+                <h2>注意事项2</h2>
+                <br><br>
+                <h3>投诉人填写的投诉内容应当符合平台要求的格式，事实清楚、实事求是，并根据平台和处理单位要求提供电话号码和其他有效联系方式，以便市场监管部门在处理时可以及时与投诉人取得联系。</h3>
+            </div>
+            <div class="caution-bar">
+                <h2>注意事项3</h2>
+                <br><br>
+                <h3>投诉由被投诉人实际经营地或者住所地县级市场监管部门处理。对电子商务平台经营者以及通过自建网站、其他网络服务销售商品或者提供服务的电子商务经营者的投诉，由其住所地县级市场监管部门处理。对平台内经营者的投诉，由其实际经营地或者平台经营者住所地县级市场监管部门处理。</h3>
+            </div>
+            <div class="caution-bar">
+                <h2>注意事项4</h2>
+                <br><br>
+                <h3>按《市场监督管理投诉举报处理暂行办法》规定具有处理权限的市场监管部门，将自收到投诉之日起七个工作日内作出受理或者不予受理的决定，并告知投诉人。</h3>
+            </div>
+            <div class="caution-bar">
+                <h2>注意事项5</h2>
+                <br><br>
+                <h3>投诉有下列情形之一的，市场监管部门不予受理：</h3>
+                <br><br>
+                <h3>(1)投诉事项不属于市场监管部门职责，或者本行政机关不具有处理权限的;</h3>
+                <br><br>
+                <h3>(2)法院、仲裁机构、市场监管部门或者其他行政机关、消费者协会或者依法成立的其他调解组织已经受理或者处理过同一消费者权益争议的;</h3>
+                <br><br>
+                <h3>(3)不是为生活消费需要购买、使用商品或者接受服务，或者不能证明与被投诉人之间存在消费者权益争议的;</h3>
+                <br><br>
+                <h3>(4)除法律另有规定外，投诉人知道或者应当知道自己的权益受到被投诉人侵害之日起超过三年的;</h3>
+                <br><br>
+                <h3>(5)未提供《市场监督管理投诉举报处理暂行办法》第九条第一款和第十条规定的材料的; </h3>
+                <br><br>
+                <h3>(6)法律、法规、规章规定不予受理的其他情形。</h3>
+            </div>
+            <div class="caution-bar">
+                <h2>注意事项6</h2>
+                <br><br>
+                <h3>市场监管部门经投诉人和被投诉人同意，采用调解的方式处理投诉，但法律、法规另有规定的，依照其规定。鼓励投诉人和被投诉人平等协商，自行和解。</h3>
+            </div>
+            <div class="caution-bar">
+                <h2>注意事项7</h2>
+                <br><br>
+                <h3>投诉对象在ODR企业名录内的，投诉人选择处理单位时，平台会自动显示“绿色通道企业”勾选项。投诉人勾选后，即表示投诉人同意与被投诉人进入和解程序，直接通过平台在线纠纷解决机制(ODR)投诉，适用平台在线纠纷机制(ODR)解决的有关规定。被投诉人将在十个工作日内与投诉人进行协商和解。投诉人和被投诉人双方和解的时间不计入市场监管部门的处理时限。和解不成的，投诉人还可以向市场监管部门进行投诉。</h3>
+            </div>
+            <div class="caution-bar">
+                <h2>注意事项8</h2>
+                <br><br>
+                <h3>投诉事项一事一单，请勿就同一事项重复投诉，请勿在一个投诉单中对不同被投诉人提出诉求。由于投诉、举报的处理程序不同，请勿在投诉中含有举报内容。</h3>
+            </div>
+            <div class="caution-bar">
+                <h2>注意事项9</h2>
+                <br><br>
+                <h3>不得在本平台发表违反中华人民共和国宪法和法律的言论，不得发表造谣、诽谤他人的言论。投诉人承担一切因留言行为而引起的法律责任。</h3>
+            </div>
+            <div class="caution-bar">
+                <h2>注意事项10</h2>
+                <br><br>
+                <h3>向市场监管部门提出意见、建议、政府信息公开申请、行政复议申请、信访及反映市场监管部门工作人员履职行为问题的，请通过专门的程序和渠道进行，本平台不予接收。投诉前要先注册账号，然后进行实名认证才能进行投诉。</h3>
+            </div>
+        </div>
+    </div>
+<!-- 底部基本信息 -->
+    <div class="lia-info">
+        <div class="tit">重庆市*********委员会</div>
+        <ul class="other-info">
+            <li>网站标识码: 1********1</li>
+            <li>ICP备案: 渝ICP备12****34号-5</li>
+            <li>渝公网安备12**********34号</li>
+        </ul>
+        <nav>
+            <div class="a">
+                <a href="javascript:;">网站地图</a>
+                <span>|</span>
+                <a href="javascript:;">版权声明</a>
+                <span>|</span>
+                <a href="javascript:;">联系我们</a>
+            </div>
+            <span>联系方式：023-12****34</span>
+        </nav>
+    </div>
+</body>
+</html>

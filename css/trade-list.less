@@ -1,0 +1,240 @@
+// 交易查询
+.mainbody-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.cotent-wrapper{
+    width: 1106px;
+    height: 1400px;
+    padding: 0 50px;
+
+    .thead{
+        height: 60px;
+        width:500px;
+        margin-left: -80px;
+        display: flex;
+        flex-direction: row;
+        line-height: 60px;
+        align-items: center;
+
+        .title{
+            // float: left;
+            width: 130px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            // margin: 20px auto;
+            padding-left: 20px;
+            font-size: 22px;
+            height: 60px;
+            line-height: 60px;
+            margin-left: 20px;
+        }
+        .tips{
+            display: flex;
+            color: #315b92;
+            font-weight: 600;
+            // margin: 30px;
+            padding-left: 20px;
+        }
+    }
+    .search-box-wrapper{
+        width: 1106px;
+        
+        .search-box{
+            width: 750px;
+            height: 60px;
+            justify-content: center;
+            text-align: center;
+            border: 1px solid ;
+            border-radius: 30px;
+            display: flex;
+            background-color: #eee;
+            margin: 40px auto;
+            // margin-top: 50px;
+            .input{
+                padding-top: 9px;
+            }
+            .search-btn{
+                font-size: 16px;
+            }
+        }
+    }
+
+    h2{
+        margin: 30px 0;
+        font-size: 30px;
+        color: rgb(54, 54, 54);
+        font-weight: 600;
+        border-left: 10px solid rgb(6, 36, 102);
+        padding-left: 20px;
+    }
+
+    .trade-list-wrapper{
+        margin: 0 auto;
+        width: 800px;
+
+        li{
+            width: 780px;
+            padding: 0 10px;
+            height: 1100px;
+            border: 1px solid rgb(92, 92, 92);
+            border-radius: 5px;
+            // box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+
+            .up-detail-bar{
+                height: 200px;
+                margin-top: 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                img{
+                    height: 200px;
+                    display: block;
+                    border-right: 5px solid rgb(92, 92, 92);
+                    padding-right: 10px;
+                }
+
+                .text-bar{
+                    height: 100%;
+                    text-align: right;
+                    font-size: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    h3:first-child{
+                        font-size: 24px;
+                        font-weight: 600;
+                    }
+                    h3:last-child{
+                        font-size: 22px;
+                        font-weight: 600;
+                        color: rgb(236, 135, 18);
+                    }
+                }
+            }
+
+            .row-detail-bar{
+                margin-top: 20px;
+                height: 40px;
+                line-height: 40px;
+                width: 760px;
+                padding: 0 10px;
+                border-top: 1px solid rgb(92, 92, 92);
+                border-bottom: 1px solid rgb(92, 92, 92);
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                i{
+                    color: rgb(4, 81, 153);
+                }
+
+                i:hover{
+                    color: rgb(70, 152, 228);
+                }
+            }
+
+            .score-bar{
+
+                h3{
+                    font-size: 24px;
+                    font-weight: 600;
+                    font-style: italic;
+                    margin: 15px 0;
+                    border-left: 5px solid rgb(6, 36, 102);
+                    padding-left: 10px;
+                }
+                
+                h4{
+                    font-size: 18px;
+                    margin-bottom: 15px;
+                    padding-left: 10px;
+                }
+
+                .star-list{
+                    height: 30px;
+                    line-height: 30px;
+                    width: 50px;
+                    padding-left: 5px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    li{
+                        border-width: 0;
+                        height: 100%;
+
+                        i{
+                            color: rgb(172, 172, 172);
+                        }
+
+                        .lit-star{
+                            color: rgb(252, 215, 5);
+                        }
+                    }
+                }
+
+                .assess-bar{
+
+                    h3{
+                        font-size: 18px;
+                        font-style: italic;
+                        border-left-width: 0;
+                        padding-left: 10px;
+                    }
+
+                    textarea{
+                        width: 750px;
+                        height: 200px;
+                        margin-left: 10px;
+                        padding: 5px;
+                        border-radius: 10px;
+                        border-width: 1px;
+                        font-size: 18px;
+                        line-height: 20px;
+                    }
+                }
+
+                .sub-btn{
+                    width: 780px;
+                    margin-top: 18px;
+                    height: 120px;
+                    align-items: center;
+        
+                    button{
+                        width: 110px;
+                        height: 35px;
+                        margin-left: 325px;
+                        line-height: 35px;
+                        font-size: 20px;
+                        border-radius: 5px;
+                        border: 1px solid rgb(214, 214, 214);
+                        box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+                        background-color: rgb(22, 182, 70);
+                        color: #fff;
+                    }
+
+                    button:hover{
+                        background-color: rgb(104, 180, 231);
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        .ending{
+            margin-top: 20px;
+            text-align: center;
+            height: 20px;
+            line-height: 20px;
+            font-size: 18px;
+            color: rgb(112, 112, 112);
+            font-style: italic;
+        }
+    }
+}

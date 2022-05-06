@@ -1,0 +1,100 @@
+// 合同备案
+.mainbody-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.ctr-save-wrapper{
+    width: 1086px;
+    height: 580px;
+    padding: 0 50px;
+
+    h2{
+        line-height: 30px;
+        height: 30px;
+        font-size: 24px;
+        font-weight: 600;
+        color: rgb(83, 83, 83);
+    }
+
+    a{
+        height: 30px;
+        line-height: 30px;
+        display: block;
+        font-size: 20px;
+    }
+    a:not(.transfer):link{
+        color: rgb(255, 22, 22);
+    }
+    a:not(.transfer):hover{
+        color: rgb(253, 133, 133);
+    }
+
+    .download-bar{
+        height: 200px;
+        width: 800px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin: 0 auto;
+
+    }
+
+    .upload-bar{
+        width: 800px;
+        height: 150px;
+        margin: 0 auto;
+
+        h3{
+            line-height: 25px;
+            height: 25px;
+            font-size: 16px;
+            color: rgb(255, 22, 22);
+            margin: 10px 0;
+        }
+        h3.tit{
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        a.transfer{
+            // display: block;
+            text-align: center;
+            border: 1px solid rgb(5, 36, 139);
+            border-radius: 5px;
+            background-color: rgba(102, 192, 233, 0.2);
+            color: rgb(5, 36, 139);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        a.transfer:hover{
+            color: aliceblue;
+            background-color: rgba(102, 192, 233, 0.8);
+        }
+
+        input{
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 16px;
+        }
+
+        button{
+            height: 30px;
+            line-height: 30px;
+            width: 60px;
+            font-size: 16px;
+            border-radius: 5px;
+            // border: 1px solid rgb(48, 48, 48);
+            border: 1px solid rgb(214, 214, 214);
+            box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+            background-color: rgb(22, 182, 70);
+            color: #fff;
+        }
+
+        button:hover{
+            background-color: rgb(104, 180, 231);
+            color: #fff;
+        }
+    }
+}

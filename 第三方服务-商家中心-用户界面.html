@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重庆市长租公寓综合信息服务平台</title>
+    <!-- 引入重置样式表 -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- 引入公共样式表 -->
+    <link rel="stylesheet" href="./css/base.css">
+    <!-- 引入当前页面样式表 -->
+    <link rel="stylesheet" href="./css/fund.css">
+    <link rel="stylesheet" href="./css/第三方服务-商家中心-用户界面.css">
+    <!-- 引入图标字体库 -->
+    <link rel="stylesheet" href="./fa/css/all.min.css">
+    <!-- <link rel="icon" href="./img/icon/stage.ico"> -->
+
+    <script type="text/javascript" src="js/tools.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            
+            /* 
+                我们每一个菜单都是一个div
+                    当div具有collapsed这个类时，div就是折叠的状态
+                    当div没有这个类时，div就是展开的状态
+            */
+            
+            /* 
+                点击菜单，切换菜单的显示状态
+            */
+            
+            // 获取所有class为menuSpan的元素
+            var menuSpan = document.querySelectorAll(".menuSpan");
+            
+            // 定义一个变量，来保存当前打开的菜单
+            var openDiv = menuSpan[0].parentNode;
+
+            // 为span绑定单机响应函数
+            for(var i=0;i<menuSpan.length;i++){
+                menuSpan[i].onclick = function(){
+                    
+                    // this代表当前点击的span
+                    // 获取当前span的父元素
+                    var parentDiv = this.parentNode;
+                    
+                    // 切换菜单的显示状态
+                    toggleMenu(parentDiv);
+                    
+                    // 判断openDiv和parentDiv是否相同
+                    if(openDiv != parentDiv && !hasClass(openDiv,"collapsed")){
+                        // 打开菜单以后，关闭之前打开的菜单
+                        // 为了可以统一处理动画过渡效果，我们希望在这将addClass改为toggleClass
+                        // addClass(openDiv,"collapsed");
+                        // 此处toggleClass()不具有任何移除功能
+                        // toggleClass(openDiv,"collapsed");
+                        // 切换菜单的显示状态
+                        toggleMenu(openDiv);
+                    };
+                    
+                    // 修改openDiv为当前的菜单
+                    openDiv = parentDiv;
+                };
+            };
+            
+            
+            /* 
+                用来切换菜单折叠和显示状态
+            */
+            function toggleMenu(obj){
+                // 在切换类之前，获取元素的高度
+                var begin = obj.offsetHeight;
+                
+                // 关闭obj
+                toggleClass(obj,"collapsed");
+                
+                // 在切换类之后获取一个高度
+                var end = obj.offsetHeight;
+                
+                // 动画效果就是将高度从begin向end过渡
+                // 将元素的高度重置为begin
+                obj.style.height = begin + "px";
+                
+                // 执行动画，从begin向end过渡
+                move(obj,"height",end,10,function(){
+                    // 动画执行完毕，内联样式已经没有存在的意义了，删除之
+                    obj.style.height = "";
+                });
+                
+            };
+        };
+    </script>
+</head>
+<body>
+<!-- 顶部基本信息 -->
+    <!-- 外部容器 -->
+    <div class="top-info-wrapper">
+        <!-- 内部容器 -->
+        <div class="top-info w">
+            <!-- 左侧平台信息 -->
+            <div class="left-info">
+                <img src="./img/icon/a-realestatepropertyhandoverhouse.png">
+                <!-- 左侧名称 -->
+            <span>重庆市长租公寓综合信息服务平台</span>
+            </div>
+            <!-- 右侧服务电话 -->
+            <div class="right-tel">
+                <div class="icon">
+                    <img src="./img/icon/Slice5.png">
+                </div>
+                <div class="tel-num">
+                    <span>房协房地产租赁专业委员会：878***980</span>
+                    <span>长租公寓信息平台客服：877***244</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 头部导航条 -->
+    <!-- 外部容器 -->
+    <div class="header-wrapper">
+        <!-- 头部导航条 -->
+        <div class="header w">
+            <!-- 左侧服务 -->
+            <ul class="left-service">
+                <li><a href="index.html">首页</a></li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="个体服务-我要租房-房源展示.html">
+                        个体服务
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="个体服务-我要租房-房源展示.html">我要租房</a></li>
+                        <li><a href="个体服务-我要出租-入驻企业.html">我要出租</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="企业服务-用户认证-企业界面.html">
+                        企业服务
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="企业服务-用户认证-企业认证-1.html">用户认证</a></li>
+                        <li><a href="企业服务-经营支持-政策合作.html">经营支持</a></li>
+                        <li><a href="企业服务-房源管理-房源市场.html">房源管理</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="第三方服务-服务大厅.html" style="background-color: rgba(33, 143, 216 ,.8);">
+                        第三方服务
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="第三方服务-商家中心-商家认证.html">商家中心</a></li>
+                        <li><a href="第三方服务-服务大厅.html">服务大厅</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="法律帮助-维权须知.html">
+                        法律帮助
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="法律帮助-维权须知.html">维权须知</a></li>
+                        <li><a href="法律帮助-咨询通道-法律咨询.html">咨询通道</a></li>
+                        <li><a href="法律帮助-用户维权-用户维权.html">用户维权</a></li>
+                        <li><a href="法律帮助-合同管理-合同备案.html">合同管理</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="信息公示-行业新闻.html">
+                        信息公示
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="信息公示-行业新闻.html">行业新闻</a></li>
+                        <li><a href="信息公示-政策公开.html">政策公开</a></li>
+                        <li><a href="信息公示-市场公开.html">市场公示</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li><a href="服务指南.html">服务指南</a></li>
+            </ul>
+            <!-- 右侧用户信息 -->
+            <div class="user-info">
+                <!-- <i class="fas fa-user-circle"></i> -->
+                <img src="./img/icon/user.png">
+                <a href="登陆页面.html">登录</a>
+                <div class="line">|</div>
+                <a href="个人注册.html">注册</a>
+            </div>
+        </div>
+    </div>
+<!-- 中部主体 -->
+    <div class="mainbody-wrapper">
+    <!-- 侧边导航条 -->
+        <!-- 外部容器 -->
+        <div class="left-nav-wrapper">
+            <!-- 二级菜单 -->
+            <div id="my_menu" class="sdmenu">
+                <div>
+                    <span class="menuSpan">商家中心</span>
+                    <a href="第三方服务-商家中心-商家认证.html">商家认证</a>
+                    <a href="第三方服务-商家中心-用户界面.html" style="background-color: #3499dd; color: #fff;">用户界面</a>
+                </div>
+                <div class="collapsed">
+                    <span class="menuSpan">服务大厅</span>
+                    <a href="第三方服务-服务大厅.html">服务大厅</a>
+                    <a href="第三方服务-用户须知.html">用户须知</a>
+                </div>
+            </div>
+        </div>
+        <div class="mainbody-right">
+            <table class="workshop">
+                <tr class="window">
+                    <td class="thead">用户工作台</td>
+                    <td class="window">服务上架数</td>
+                    <td class="window">服务储备数</td>
+                    <td class="window">服务人次</td>
+                    <td class="window">入驻时间</td>
+                </tr>
+                <tr class="num">
+                    <td></td>
+                    <td class="num">0</td>
+                    <td class="num">0</td>
+                    <td class="num">0</td>
+                    <td class="num">0</td>
+                </tr>
+            </table>
+            <div class="service-warehouse">
+                <div class="search-box">
+                    <div>
+                        <input style="font-size: 16px;width: 400px;height: 30px;border-radius: 5px;border-width: 1px;padding-left: 5px;" type="text" placeholder="请输入服务编码">
+                        <button class="search-btn" style="width: 80px;height: 36px;cursor: pointer;border-radius: 10px;">搜索</button>
+                    </div>
+                </div>
+                <h3>已上架服务</h3>
+                <ul class="on-shelf">
+                    <li class="up-house">
+                        <span>折扣优惠-1-1</span>
+                        <button class="btn out">下架</button>
+                    </li>
+                    <li class="up-house">
+                        <span>折扣优惠-1-2</span>
+                        <button class="btn out">下架</button>
+                    </li>
+                    <li class="up-house">
+                        <span>折扣优惠-1-3</span>
+                        <button class="btn out">下架</button>
+                    </li>
+                    <li class="up-house">
+                        <span>抽奖特权-1-1</span>
+                        <button class="btn out">下架</button>
+                    </li>
+                    <li class="up-house">
+                        <span>抽奖特权-1-2</span>
+                        <button class="btn out">下架</button>
+                    </li>
+                </ul>
+                <h3>储备服务</h3>
+                <ul class="out-shelf">
+                    <li class="down-house">
+                        <span>赠送优惠-1-1</span>
+                        <button class="btn on">上架</button>
+                    </li>
+                    <li class="down-house">
+                        <span>赠送优惠-1-2</span>
+                        <button class="btn on">上架</button>
+                    </li>
+                    <li class="down-house">
+                        <span>赠送优惠-1-3</span>
+                        <button class="btn on">上架</button>
+                    </li>
+                    <li class="down-house">
+                        <span>赠送优惠-1-4</span>
+                        <button class="btn on">上架</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="service-submit">
+                <h3>服务发布</h3>
+                <ul class="input-list">
+                    <li class="input-tit">
+                        基本信息
+                    </li>
+                    <li>
+                        <span>*</span>
+                        服务名称：
+                        <input type="text" placeholder=" 请输入简称，10字以内">
+                    </li>
+                    <li>
+                        <span>*</span>
+                        提供方式：
+                        <select id="downlist-1">
+                            <option>线上服务</option>
+                            <option>线下服务</option>
+                            <option>线上+线下服务</option>
+                        </select>
+                    </li>
+                    <li>
+                        <span>*</span>
+                        服务分类：
+                        <select id="downlist-2">
+                            <option>出行类</option>
+                            <option>餐饮类</option>
+                            <option>购物类</option>
+                            <option>娱乐类</option>
+                            <option>教育类</option>
+                            <option>其它分类</option>
+                        </select>
+                    </li>
+                    <li>
+                        <span>*</span>
+                        服务类型：
+                        <select id="downlist-2">
+                            <option>折扣类</option>
+                            <option>赠送类</option>
+                            <option>抽奖类</option>
+                            <option>特权类</option>
+                            <option>其它</option>
+                        </select>
+                    </li>
+                    <li>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" placeholder=" 若选其它，请简要概括">
+                    </li>
+                    <li>
+                        <span>*</span>
+                        广告语：
+                        <input type="text" placeholder=" 请尽量精炼">
+                    </li>
+                    <li>
+                        <span>*</span>
+                        详细描述：
+                        <input type="text" placeholder=" 300字以内”">
+                    </li>
+                    <li class="upload-bar">
+                        <span>*</span>
+                        图片上传：
+                        <input type="file" accept=".png,.jpg,.jpeg,.webp,.gif">
+                    </li>
+                    <li class="input-tit">
+                        限制条件
+                    </li>
+                    <li>
+                        <span>*</span>
+                        服务地点限制：
+                        <input type="text" placeholder=" 请填写门店或行政区域；若无限制则填“无”">
+                    </li>
+                    <li>
+                        <span>*</span>
+                        服务时间限制：
+                        <input type="text" placeholder=" 如：2022-5-21-14：00--2022-5-22-14：00；若无限制则填“无”">
+                    </li>
+                    <li>
+                        <span>*</span>
+                        服务量限制：
+                        <input type="text" placeholder=" 如：总-1000份、2份/人；若无限制则填“无”">
+                    </li>
+                    <li>
+                        <span>*</span>
+                        其它限制：
+                        <input type="text" placeholder=" 若无限制则填“无”">
+                    </li>
+                    <li class="sub-btn">
+                        <button type="submit">提交</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<!-- 底部基本信息 -->
+    <div class="lia-info">
+        <div class="tit">重庆市*********委员会</div>
+        <ul class="other-info">
+            <li>网站标识码: 1********1</li>
+            <li>ICP备案: 渝ICP备12****34号-5</li>
+            <li>渝公网安备12**********34号</li>
+        </ul>
+        <nav>
+            <div class="a">
+                <a href="javascript:;">网站地图</a>
+                <span>|</span>
+                <a href="javascript:;">版权声明</a>
+                <span>|</span>
+                <a href="javascript:;">联系我们</a>
+            </div>
+            <span>联系方式：023-12****34</span>
+        </nav>
+    </div>
+</body>
+</html>

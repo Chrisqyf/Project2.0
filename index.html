@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重庆市长租公寓综合信息服务平台</title>
+    <!-- 引入重置样式表 -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- 引入公共样式表 -->
+    <link rel="stylesheet" href="./css/base.css">
+    <!-- 引入当前页面样式表 -->
+    <link rel="stylesheet" href="./css/homePage.css">
+    <!-- 引入图标字体库 -->
+    <link rel="stylesheet" href="./fa/css/all.min.css">
+    <!-- <link rel="icon" href="./img/icon/stage.ico"> -->
+
+    <script src="js/tools.js"></script>
+    <script>
+        function myClick(idStr,fun){
+				var btn = document.getElementById(idStr);
+				btn.onclick = fun;
+			};
+        window.onload = function(){
+            // 获取“平台介绍”
+            var intro = document.getElementsByClassName("introduce-wrapper")[0];
+            // 获取“平台介绍背景”
+            var introBac = document.getElementsByClassName("intro-bac")[0];
+
+            myClick("btn01",function(){
+                // 删除“平台介绍”及背景
+                intro.parentNode.removeChild(intro);
+                introBac.parentNode.removeChild(introBac);
+            });
+
+            function setcookie(){
+                var d = new Date();
+                d.setTime(d.getTime()+60*60*1000);
+                document.cookie = "name=world;expires="+d.toGMTString();
+                var res = document.cookie;
+                return res;
+            };
+            if(document.cookie==""){
+                intro.style.height = "400px";
+                setcookie();
+            }else{
+                intro.style.display = "none";
+                introBac.style.display = "none";
+            };
+        };
+    </script>
+</head>
+<body>
+<!-- 顶部基本信息 -->
+    <!-- 外部容器 -->
+    <div class="top-info-wrapper">
+        <!-- 内部容器 -->
+        <div class="top-info w">
+            <!-- 左侧平台信息 -->
+            <div class="left-info">
+                <img src="./img/icon/a-realestatepropertyhandoverhouse.png">
+                <!-- 左侧名称 -->
+            <span>重庆市长租公寓综合信息服务平台</span>
+            </div>
+            <!-- 右侧服务电话 -->
+            <div class="right-tel">
+                <div class="icon">
+                    <img src="./img/icon/Slice5.png">
+                </div>
+                <div class="tel-num">
+                    <span>房协房地产租赁专业委员会：878***980</span>
+                    <span>长租公寓信息平台客服：877***244</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 头部导航条 -->
+    <!-- 外部容器 -->
+    <div class="header-wrapper">
+        <!-- 头部导航条 -->
+        <div class="header w">
+            <!-- 左侧服务 -->
+            <ul class="left-service">
+                <li><a href="index.html" style="background-color: rgba(33, 143, 216 ,.8);">首页</a></li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="个体服务-我要租房-房源展示.html">
+                        个体服务
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="个体服务-我要租房-房源展示.html">我要租房</a></li>
+                        <li><a href="个体服务-我要出租-入驻企业.html">我要出租</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="企业服务-用户认证-企业界面.html">
+                        企业服务
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="企业服务-用户认证-企业认证-1.html">用户认证</a></li>
+                        <li><a href="企业服务-经营支持-政策合作.html">经营支持</a></li>
+                        <li><a href="企业服务-房源管理-房源市场.html">房源管理</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="第三方服务-服务大厅.html">
+                        第三方服务
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="第三方服务-商家中心-商家认证.html">商家中心</a></li>
+                        <li><a href="第三方服务-服务大厅.html">服务大厅</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="法律帮助-维权须知.html">
+                        法律帮助
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="法律帮助-维权须知.html">维权须知</a></li>
+                        <li><a href="法律帮助-咨询通道-法律咨询.html">咨询通道</a></li>
+                        <li><a href="法律帮助-用户维权-用户维权.html">用户维权</a></li>
+                        <li><a href="法律帮助-合同管理-合同备案.html">合同管理</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="信息公示-行业新闻.html">
+                        信息公示
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="信息公示-行业新闻.html">行业新闻</a></li>
+                        <li><a href="信息公示-政策公开.html">政策公开</a></li>
+                        <li><a href="信息公示-市场公开.html">市场公示</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li><a href="服务指南.html">服务指南</a></li>
+            </ul>
+            <!-- 右侧用户信息 -->
+            <div class="user-info">
+                <!-- <i class="fas fa-user-circle"></i> -->
+                <img src="./img/icon/user.png">
+                <a href="登陆页面.html">登录</a>
+                <div class="line">|</div>
+                <a href="个人注册.html">注册</a>
+            </div>
+        </div>
+    </div>
+<!-- P1背景 -->
+    <div class="p1-bac">
+        <!-- 图片 -->
+        <div class="pic"></div>
+        <!-- 色块 -->
+        <div class="color-bar"></div>
+        <!-- 房源数据 -->
+        <ul class="house-data">
+            <li>
+                <h1>备案房源</h1>
+                <h2>
+                    <span>9999</span>
+                    <span>套</span>
+                    <i class="fas fa-long-arrow-alt-up"></i>
+                </h2>
+                
+            </li>
+            <li>
+                <h1>入驻机构</h1>
+                <h2>
+                    <span>999</span>
+                    <span>家</span>
+                </h2>
+                
+            </li>
+            <li>
+                <h1>房源上新</h1>
+                <h2>
+                    <span>999</span>
+                    <span>套</span>
+                </h2>
+                
+            </li>
+            <li>
+                <h1>今日租价</h1>
+                <h2>
+                    <span>1299</span>
+                    <span>元/月</span>
+                    <i class="fas fa-long-arrow-alt-down"></i>
+                </h2>
+                
+            </li>
+        </ul>
+    </div>
+<!-- 推荐房源 -->
+    <div class="commend-wrapper">
+        <div class="in-tit">
+            <div class="left-tit">
+                <h2>推荐房源</h2>
+            </div>
+            <div class="right-tit">
+                <a href="./个体服务-我要租房-房源展示.html">
+                    更多房源
+                    <i class="fas fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+        <ul class="house-list">
+            <li class="house-bar">
+                <img src="./img/houses/h1.jpeg">
+                <div class="main-bar">
+                    <div class="bar-left">
+                        <h1>观音桥御龙天峰</h2>
+                        <br><br>
+                        <h2>2室2厅1卫 96m2</h2>
+                        <br><br>
+                        <h2>整租</h2>
+                    </div>
+                    <div class="bar-right">
+                        <h2>龙湖冠寓</h2>
+                        <br><br>
+                        <div class="cert-icon">
+                            <i class="fab fa-hackerrank" style="color: rgb(134, 178, 218);"></i>
+                            认证公寓
+                        </div>
+                        <br><br>
+                        <h1 class="price-tag">2999元/月</h1>
+                    </div>
+                </div>
+            </li>
+            <li class="house-bar">
+                <img src="./img/houses/h2.jpeg">
+                <div class="main-bar">
+                    <div class="bar-left">
+                        <h1>观音桥御龙天峰</h2>
+                        <br><br>
+                        <h2>2室2厅1卫 96m2</h2>
+                        <br><br>
+                        <h2>整租</h2>
+                    </div>
+                    <div class="bar-right">
+                        <h2>龙湖冠寓</h2>
+                        <br><br>
+                        <div class="cert-icon">
+                            <i class="fab fa-hackerrank" style="color: rgb(134, 178, 218);"></i>
+                            认证公寓
+                        </div>
+                        <br><br>
+                        <h1 class="price-tag">2999元/月</h1>
+                    </div>
+                </div>
+            </li>
+            <li class="house-bar">
+                <img src="./img/houses/h3.jpeg">
+                <div class="main-bar">
+                    <div class="bar-left">
+                        <h1>观音桥御龙天峰</h2>
+                        <br><br>
+                        <h2>2室2厅1卫 96m2</h2>
+                        <br><br>
+                        <h2>整租</h2>
+                    </div>
+                    <div class="bar-right">
+                        <h2>龙湖冠寓</h2>
+                        <br><br>
+                        <div class="cert-icon">
+                            <i class="fab fa-hackerrank" style="color: rgb(134, 178, 218);"></i>
+                            认证公寓
+                        </div>
+                        <br><br>
+                        <h1 class="price-tag">2999元/月</h1>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+<!-- 热点信息 -->
+    <div class="news-wrapper">
+        <div class="in-tit">
+            <div class="left-tit">
+                <h2>热点信息</h2>
+            </div>
+            <div class="right-tit">
+                <a href="./信息公示-行业新闻.html">
+                    更多信息
+                    <i class="fas fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="news-body-wrapper">
+            <img src="./img/news-img.jpeg">
+            <div class="text-bar">
+                <ul class="news-list">
+                    <h2>行业热点</h2>
+                    <li>
+                        <a href="javascript:;">重庆市住房和城乡建设委员会关于加强住房租赁资金监管的通知</a>
+                        <span>2021-01-05 </span>
+                    </li>
+                    <li>
+                        <a href="javascript:;">重庆市住房和城乡建设委员会关于加强住房租赁资金监管的通知</a>
+                        <span>2021-01-05 </span>
+                    </li>
+                    <li>
+                        <a href="javascript:;">重庆市住房和城乡建设委员会关于加强住房租赁资金监管的通知</a>
+                        <span>2021-01-05 </span>
+                    </li>
+                </ul>
+                <ul class="policy-list">
+                    <h2>政策上新</h2>
+                    <li>
+                        <a href="javascript:;">重庆市住房和城乡建设委员会关于加强住房租赁资金监管的通知</a>
+                        <span>2021-01-05 </span>
+                    </li>
+                    <li>
+                        <a href="javascript:;">重庆市住房和城乡建设委员会 重庆市地方金融监督管理局 中国人民银行重庆营业管理部 中国银行保险监督管理委员会重庆监管局 关于实施住房租赁资金监管 加强住房租赁企业合规经营的通知</a>
+                        <span>2020-11-20 </span>
+                    </li>
+                    <li>
+                        <a href="javascript:;">重庆市住房和城乡建设委员会关于加强住房租赁资金监管的通知</a>
+                        <span>2021-01-05 </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<!-- intro-bac -->
+    <div class="intro-bac"></div>
+<!-- 平台介绍 -->
+    <div class="introduce-wrapper">
+        <h2>平台简介</h2>
+        <div class="left-up"></div>
+        <h3>
+            &emsp;&emsp;重庆市长租公寓综合信息服务平台是致力于打造属于重庆本土、聚焦长租公寓行业的信息服务平台。以政府为主导，以互联网技术为支撑，以信息平台为依托，集多元化、智能化、规范化、功能先进的集房屋租赁公共服务和监管于一体。提供个体服务、企业服务、第三方服务、法律帮助、信息公示、服务指南六大功能模块。充分发挥政府公信力和互联网技术的优势,以多层次全方位专业化的创新服务和强大的监管功能。
+        </h3>
+        <div class="right-down"></div>
+        <button class="start" id="btn01">开启“长租道”</button>
+    </div>
+<!-- 底部基本信息 -->
+    <div class="lia-info">
+        <div class="tit">重庆市*********委员会</div>
+        <ul class="other-info">
+            <li>网站标识码: 1********1</li>
+            <li>ICP备案: 渝ICP备12****34号-5</li>
+            <li>渝公网安备12**********34号</li>
+        </ul>
+        <nav>
+            <div class="a">
+                <a href="javascript:;">网站地图</a>
+                <span>|</span>
+                <a href="javascript:;">版权声明</a>
+                <span>|</span>
+                <a href="javascript:;">联系我们</a>
+            </div>
+            <span>联系方式：023-12****34</span>
+        </nav>
+    </div>
+</body>
+</html>

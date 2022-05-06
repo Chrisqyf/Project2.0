@@ -1,0 +1,140 @@
+// 房源发布
+.mainbody-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.susidy-wrapper{
+    width: 1106px;
+    height: 580px;
+    padding: 0 50px;
+
+    .process-bar{
+        width: 560px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 40px auto;
+
+        .prc{
+            width: 80px;
+            text-align: center;
+
+            .lit-ball{
+                height: 40px;
+                line-height: 40px;
+                width: 40px;
+                background-color: rgb(8, 99, 184);
+                border-radius: 50%;
+                border: 5px solid rgb(128, 185, 238);
+                margin: 0 auto;
+                margin-top: 5px;
+                font-size: 20px;
+                font-weight: 600;
+                color: aliceblue;
+            }
+            .ball{
+                height: 50px;
+                line-height: 50px;
+                width: 50px;
+                background-color: rgb(146, 146, 146);
+                border-radius: 50%;
+                margin: 0 auto;
+                margin-top: 5px;
+                font-size: 20px;
+                font-weight: 600;
+                color: aliceblue;
+            }
+        }
+
+        .row-line{
+            height: 10px;
+            width: 200px;
+            background-color: rgb(146, 146, 146);
+            margin: 0 -15px;
+            margin-top: 40px;
+        }
+    }
+
+    h2{
+        line-height: 30px;
+        height: 30px;
+        font-size: 24px;
+        font-weight: 600;
+        color: rgb(83, 83, 83);
+    }
+
+    .download-bar{
+        height: 200px;
+        width: 800px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin: 0 auto;
+
+
+        a{
+            height: 30px;
+            line-height: 30px;
+            display: block;
+            font-size: 20px;
+        }
+        a:not(.transfer):link{
+            color: rgb(255, 22, 22);
+        }
+        a:not(.transfer):hover{
+            color: rgb(253, 133, 133);
+        }
+        a.transfer{
+            text-align: center;
+            border: 1px solid rgb(5, 36, 139);
+            border-radius: 5px;
+            background-color: rgba(102, 192, 233, 0.2);
+            color: rgb(5, 36, 139);
+            font-weight: 600;
+        }
+        a.transfer:hover{
+            color: aliceblue;
+            background-color: rgba(102, 192, 233, 0.8);
+        }
+    }
+
+    .upload-bar{
+        width: 800px;
+        height: 150px;
+        margin: 0 auto;
+
+        h3{
+            line-height: 30px;
+            height: 30px;
+            font-size: 16px;
+            color: rgb(255, 22, 22);
+            margin: 10px 0;
+        }
+
+        input{
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 16px;
+        }
+
+        button{
+            height: 30px;
+            line-height: 30px;
+            width: 60px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid rgb(214, 214, 214);
+            box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+            background-color: rgb(22, 182, 70);
+            color: #fff;
+        }
+
+        button:hover{
+            background-color: rgb(104, 180, 231);
+            color: #fff;
+        }
+    }
+}

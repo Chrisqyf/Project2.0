@@ -1,0 +1,220 @@
+.mainbody-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.indnews-wrapper{
+    width: 1106px;
+    // height: 1000px;
+    padding: 0 50px;
+
+    .mov-img-wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        /* outer样式 */
+		#outer{
+			width: 560px;
+			height: 380px;
+			margin: 50px auto;
+			background-color: #b4b4b43b;
+            border-radius: 5px;
+            border: 1px solid #b4b4b4;
+			padding: 10px 0;
+			position: relative;
+			overflow: hidden;
+
+            #imgList{
+                /* 去除项目符号 */
+                // list-style: none;
+                /* 开启绝对定位 */
+                position: absolute;
+                /* 设置偏移量 */
+                /* 
+                    每向左移动220px，就会显示到下一张图片
+                */
+                /* left: 0px; */
+
+                /* imgList样式 */
+		
+                li{
+                    width: 540px;
+                    height: 360px;
+                    /* 设置浮动 */
+                    float: left;
+                    /* 设置左右外边距 */
+                    margin: 0 10px;
+
+                    // img{
+                    //     // display: block;
+                    //     height: 100%;
+                    // }
+                }
+            }
+
+            /* 导航按钮样式 */
+            #navDiv{
+                /* 开启绝对定位 */
+                position: absolute;
+                /* 设置位置 */
+                bottom: 10px;
+                /* 
+                    设置left值
+                        outer宽度 220 
+                        navDiv宽度 20*6 = 120
+                            220 - 120 = 100
+                            100/2 = 50
+                */
+                /* left: 50px; */
+
+
+            }
+
+            #navDiv a{
+                /* 设置超链接浮动 */
+                float: left;
+                /* 设置宽高 */
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                /* 背景颜色 */
+                background-color: #9c9c9c;
+                /* 设置左右外边距 */
+                margin: 0 5px;
+                /* 设置透明 */
+                opacity: 0.5;
+                /* 兼容IE8 */
+                filter: alpha(opacity=50);
+            }
+            
+            /* 设置鼠标移入的效果 */
+            #navDiv a:hover{
+                background-color: black;
+                opacity: 0.5;
+            }
+		}
+
+        .text-list{
+            height: 400px;
+            width: 500px;
+            margin-top: 50px;
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 19px;
+            // border-right: 2px solid rgb(97, 97, 97);
+
+            h2{
+                height: 30px;
+                line-height: 30px;
+                font-size: 22px;
+                font-weight: 600;
+                color: #f58f0b;
+            }
+
+            li{
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                height: 40px;
+                line-height: 40px;
+                padding: 0 5px;
+                border-radius: 5px;
+            }
+            li:hover{
+                background-color: #e0e0e0;
+                font-weight: bold;
+            }
+
+            .line-bar{
+                height: 20px;
+                width: 100%;
+
+                .line{
+                    width: 20px;
+                    height: 20px;
+                    border-bottom: 5px solid rgb(4, 63, 141);
+                    border-right: 5px solid rgb(4, 63, 141);
+                    margin-left: 500px;
+                }
+            }
+        }
+    }
+
+    .news-list-bar{
+        width: 100%;
+
+        h2{
+            font-size: 30px;
+            font-weight: 600;
+            border-left: 10px solid #666666;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+        }
+
+        .news-list{
+            width: 900px;
+            height: 400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            // background-color: #f58f0b;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            li{
+                height: 40px;
+                line-height: 40px;
+                font-size: 18px;
+                border-top: 1px solid #727272;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                span{
+                    padding: 0 5px;
+                }
+                span.title{
+                    width: 690px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+            li:first-child{
+                border-top-width: 0;
+            }
+            li:hover{
+                background-color: #e0e0e0;
+                font-weight: bold;
+            }
+        }
+    }    
+}
+
+DIV.digg {
+    PADDING-RIGHT: 3px; 
+    PADDING-LEFT: 3px; 
+    PADDING-BOTTOM: 3px; 
+    MARGIN: 10px; 
+    PADDING-TOP: 30px; 
+    TEXT-ALIGN: center
+    }
+    DIV.digg A {
+    BORDER-RIGHT: #aaaadd 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #aaaadd 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; MARGIN: 2px; BORDER-LEFT: #aaaadd 1px solid; COLOR: #000099; PADDING-TOP: 2px; BORDER-BOTTOM: #aaaadd 1px solid; TEXT-DECORATION: none
+    }
+    DIV.digg A:hover {
+    BORDER-RIGHT: #000099 1px solid; BORDER-TOP: #000099 1px solid; BORDER-LEFT: #000099 1px solid; COLOR: #000; BORDER-BOTTOM: #000099 1px solid
+    }
+    DIV.digg A:active {
+    BORDER-RIGHT: #000099 1px solid; BORDER-TOP: #000099 1px solid; BORDER-LEFT: #000099 1px solid; COLOR: #000; BORDER-BOTTOM: #000099 1px solid
+    }
+    DIV.digg SPAN.current {
+    BORDER-RIGHT: #000099 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #000099 1px solid; PADDING-LEFT: 5px; FONT-WEIGHT: bold; PADDING-BOTTOM: 2px; MARGIN: 2px; BORDER-LEFT: #000099 1px solid; COLOR: #fff; PADDING-TOP: 2px; BORDER-BOTTOM: #000099 1px solid; BACKGROUND-COLOR: #000099
+    }
+    DIV.digg SPAN.disabled {
+    BORDER-RIGHT: #eee 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #eee 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; MARGIN: 2px; BORDER-LEFT: #eee 1px solid; COLOR: #ddd; PADDING-TOP: 2px; BORDER-BOTTOM: #eee 1px solid
+    }

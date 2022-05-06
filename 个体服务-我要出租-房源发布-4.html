@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重庆市长租公寓综合信息服务平台</title>
+    <!-- 引入重置样式表 -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- 引入公共样式表 -->
+    <link rel="stylesheet" href="./css/base.css">
+    <!-- 引入当前页面样式表 -->
+    <link rel="stylesheet" href="./css/fund.css">
+    <link rel="stylesheet" href="./css/rent-out-hd-4.css">
+    <!-- 引入图标字体库 -->
+    <link rel="stylesheet" href="./fa/css/all.min.css">
+    <!-- <link rel="icon" href="./img/icon/stage.ico"> -->
+
+    <script type="text/javascript" src="js/tools.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            
+            /* 
+                我们每一个菜单都是一个div
+                    当div具有collapsed这个类时，div就是折叠的状态
+                    当div没有这个类时，div就是展开的状态
+            */
+            
+            /* 
+                点击菜单，切换菜单的显示状态
+            */
+            
+            // 获取所有class为menuSpan的元素
+            var menuSpan = document.querySelectorAll(".menuSpan");
+            
+            // 定义一个变量，来保存当前打开的菜单
+            var openDiv = menuSpan[0].parentNode;
+
+            // 为span绑定单机响应函数
+            for(var i=0;i<menuSpan.length;i++){
+                menuSpan[i].onclick = function(){
+                    
+                    // this代表当前点击的span
+                    // 获取当前span的父元素
+                    var parentDiv = this.parentNode;
+                    
+                    // 切换菜单的显示状态
+                    toggleMenu(parentDiv);
+                    
+                    // 判断openDiv和parentDiv是否相同
+                    if(openDiv != parentDiv && !hasClass(openDiv,"collapsed")){
+                        // 打开菜单以后，关闭之前打开的菜单
+                        // 为了可以统一处理动画过渡效果，我们希望在这将addClass改为toggleClass
+                        // addClass(openDiv,"collapsed");
+                        // 此处toggleClass()不具有任何移除功能
+                        // toggleClass(openDiv,"collapsed");
+                        // 切换菜单的显示状态
+                        toggleMenu(openDiv);
+                    };
+                    
+                    // 修改openDiv为当前的菜单
+                    openDiv = parentDiv;
+                };
+            };
+            
+            
+            /* 
+                用来切换菜单折叠和显示状态
+            */
+            function toggleMenu(obj){
+                // 在切换类之前，获取元素的高度
+                var begin = obj.offsetHeight;
+                
+                // 关闭obj
+                toggleClass(obj,"collapsed");
+                
+                // 在切换类之后获取一个高度
+                var end = obj.offsetHeight;
+                
+                // 动画效果就是将高度从begin向end过渡
+                // 将元素的高度重置为begin
+                obj.style.height = begin + "px";
+                
+                // 执行动画，从begin向end过渡
+                move(obj,"height",end,10,function(){
+                    // 动画执行完毕，内联样式已经没有存在的意义了，删除之
+                    obj.style.height = "";
+                });
+                
+            };
+        };
+    </script>
+</head>
+<body>
+<!-- 顶部基本信息 -->
+    <!-- 外部容器 -->
+    <div class="top-info-wrapper">
+        <!-- 内部容器 -->
+        <div class="top-info w">
+            <!-- 左侧平台信息 -->
+            <div class="left-info">
+                <img src="./img/icon/a-realestatepropertyhandoverhouse.png">
+                <!-- 左侧名称 -->
+            <span>重庆市长租公寓综合信息服务平台</span>
+            </div>
+            <!-- 右侧服务电话 -->
+            <div class="right-tel">
+                <div class="icon">
+                    <img src="./img/icon/Slice5.png">
+                </div>
+                <div class="tel-num">
+                    <span>房协房地产租赁专业委员会：878***980</span>
+                    <span>长租公寓信息平台客服：877***244</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 头部导航条 -->
+    <!-- 外部容器 -->
+    <div class="header-wrapper">
+        <!-- 头部导航条 -->
+        <div class="header w">
+            <!-- 左侧服务 -->
+            <ul class="left-service">
+                <li><a href="index.html">首页</a></li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="个体服务-我要租房-房源展示.html" style="background-color: rgba(33, 143, 216 ,.8);">
+                        个体服务
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="个体服务-我要租房-房源展示.html">我要租房</a></li>
+                        <li><a href="个体服务-我要出租-入驻企业.html">我要出租</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="企业服务-用户认证-企业界面.html">
+                        企业服务
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="企业服务-用户认证-企业认证-1.html">用户认证</a></li>
+                        <li><a href="企业服务-经营支持-政策合作.html">经营支持</a></li>
+                        <li><a href="企业服务-房源管理-房源市场.html">房源管理</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="第三方服务-服务大厅.html">
+                        第三方服务
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="第三方服务-商家中心-商家认证.html">商家中心</a></li>
+                        <li><a href="第三方服务-服务大厅.html">服务大厅</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="法律帮助-维权须知.html">
+                        法律帮助
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="法律帮助-维权须知.html">维权须知</a></li>
+                        <li><a href="法律帮助-咨询通道-法律咨询.html">咨询通道</a></li>
+                        <li><a href="法律帮助-用户维权-用户维权.html">用户维权</a></li>
+                        <li><a href="法律帮助-合同管理-合同备案.html">合同管理</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="信息公示-行业新闻.html">
+                        信息公示
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="信息公示-行业新闻.html">行业新闻</a></li>
+                        <li><a href="信息公示-政策公开.html">政策公开</a></li>
+                        <li><a href="信息公示-市场公开.html">市场公示</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li><a href="服务指南.html">服务指南</a></li>
+            </ul>
+            <!-- 右侧用户信息 -->
+            <div class="user-info">
+                <!-- <i class="fas fa-user-circle"></i> -->
+                <img src="./img/icon/user.png">
+                <a href="登陆页面.html">登录</a>
+                <div class="line">|</div>
+                <a href="个人注册.html">注册</a>
+            </div>
+        </div>
+    </div>
+<!-- 中部主体 -->
+    <div class="mainbody-wrapper">
+    <!-- 侧边导航条 -->
+        <!-- 外部容器 -->
+        <div class="left-nav-wrapper">
+            <!-- 二级菜单 -->
+            <div id="my_menu" class="sdmenu">
+                <div  class="collapsed">
+                    <span class="menuSpan">我要租房</span>
+                    <a href="个体服务-我要租房-房源展示.html">房源展示</a>
+                    <a href="个体服务-我要租房-房源地图.html">房源地图</a>
+                    <a href="个体服务-我要租房-注意事项.html">注意事项</a>
+                </div>
+                <div>
+                    <span class="menuSpan">我要出租</span>
+                    <a href="个体服务-我要出租-入驻企业.html">入驻企业</a>
+                    <a href="个体服务-我要出租-房源发布-1.html" style="background-color: #3499dd; color: #fff;">房源发布</a>
+                    <a href="个体服务-我要出租-注意事项.html">注意事项</a>
+                </div>
+            </div>
+        </div>
+    <!-- 内容区 -->
+        <div class="signon-wrapper">
+            <div class="process-bar">
+                <div class="prc">
+                    <span>房产核验</span>
+                    <div class="ball">1</div>
+                </div>
+                <div class="row-line"></div>
+                <div class="prc">
+                    <span>填写信息</span>
+                    <div class="ball">2</div>
+                </div>
+                <div class="row-line"></div>
+                <div class="prc">
+                    <span>发布房源</span>
+                    <div class="ball">3</div>
+                </div>
+                <div class="row-line"></div>
+                <div class="prc">
+                    <span>收件箱</span>
+                    <div class="lit-ball">4</div>
+                </div>
+            </div>
+            <ul class="dli-list">
+                <li>
+                    <div class="dli-tit">
+                        <a>房源发布信息：金象左右2室一厅一卫</a>
+                        <a>2022-02-22 22:02</a>
+                    </div>
+                    <ul class="rec-list">
+                        <li>
+                            <img src="./img/companies/c1.jpeg">
+                            <div class="cop-content">
+                                <h1>龙湖冠寓</h1>
+                                <div class="icon-bar">
+                                    <i class="fas fa-address-card" style="color: rgb(224, 218, 131);"></i>
+                                    营业执照
+                                </div>
+                                <div class="icon-bar">
+                                    <i class="fas fa-stamp" style="color: rgb(138, 226, 130);"></i>
+                                    信用企业
+                                </div>
+                                <h2>联系电话：8888-6666</h2>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="./img/companies/c2.jpeg">
+                            <div class="cop-content">
+                                <h1>每客逸家</h1>
+                                <div class="icon-bar">
+                                    <i class="fas fa-address-card" style="color: rgb(224, 218, 131);"></i>
+                                    营业执照
+                                </div>
+                                <div class="icon-bar">
+                                    <i class="fas fa-stamp" style="color: rgb(138, 226, 130);"></i>
+                                    信用企业
+                                </div>
+                                <h2>联系电话：8888-6666</h2>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="./img/companies/c3.jpeg">
+                            <div class="cop-content">
+                                <h1>可加公寓</h1>
+                                <div class="icon-bar">
+                                    <i class="fas fa-address-card" style="color: rgb(224, 218, 131);"></i>
+                                    营业执照
+                                </div>
+                                <div class="icon-bar">
+                                    <i class="fas fa-stamp" style="color: rgb(138, 226, 130);"></i>
+                                    信用企业
+                                </div>
+                                <h2>联系电话：8888-6666</h2>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="./img/companies/c4.jpeg">
+                            <div class="cop-content">
+                                <h1>嘛嘛公寓</h1>
+                                <div class="icon-bar">
+                                    <i class="fas fa-address-card" style="color: rgb(224, 218, 131);"></i>
+                                    营业执照
+                                </div>
+                                <div class="icon-bar">
+                                    <i class="fas fa-stamp" style="color: rgb(138, 226, 130);"></i>
+                                    信用企业
+                                </div>
+                                <h2>联系电话：8888-6666</h2>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dli-tit">
+                        <a>房源发布信息：金象左右2室一厅一卫</a>
+                        <a>2022-02-22 22:02</a>
+                    </div>
+                    <ul class="rec-list">
+                        <li>
+                            <img src="./img/companies/c1.jpeg">
+                            <div class="cop-content">
+                                <h1>龙湖冠寓</h1>
+                                <div class="icon-bar">
+                                    <i class="fas fa-address-card" style="color: rgb(224, 218, 131);"></i>
+                                    营业执照
+                                </div>
+                                <div class="icon-bar">
+                                    <i class="fas fa-stamp" style="color: rgb(138, 226, 130);"></i>
+                                    信用企业
+                                </div>
+                                <h2>联系电话：8888-6666</h2>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="./img/companies/c2.jpeg">
+                            <div class="cop-content">
+                                <h1>每客逸家</h1>
+                                <div class="icon-bar">
+                                    <i class="fas fa-address-card" style="color: rgb(224, 218, 131);"></i>
+                                    营业执照
+                                </div>
+                                <div class="icon-bar">
+                                    <i class="fas fa-stamp" style="color: rgb(138, 226, 130);"></i>
+                                    信用企业
+                                </div>
+                                <h2>联系电话：8888-6666</h2>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="./img/companies/c3.jpeg">
+                            <div class="cop-content">
+                                <h1>可加公寓</h1>
+                                <div class="icon-bar">
+                                    <i class="fas fa-address-card" style="color: rgb(224, 218, 131);"></i>
+                                    营业执照
+                                </div>
+                                <div class="icon-bar">
+                                    <i class="fas fa-stamp" style="color: rgb(138, 226, 130);"></i>
+                                    信用企业
+                                </div>
+                                <h2>联系电话：8888-6666</h2>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="./img/companies/c4.jpeg">
+                            <div class="cop-content">
+                                <h1>嘛嘛公寓</h1>
+                                <div class="icon-bar">
+                                    <i class="fas fa-address-card" style="color: rgb(224, 218, 131);"></i>
+                                    营业执照
+                                </div>
+                                <div class="icon-bar">
+                                    <i class="fas fa-stamp" style="color: rgb(138, 226, 130);"></i>
+                                    信用企业
+                                </div>
+                                <h2>联系电话：8888-6666</h2>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="digg">
+                <span class="disabled">&lt; </span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a>...<a href="#?page=199">199</a><a href="#?page=200">200</a><a href="#?page=2">
+                &gt; </a>
+            </div>
+        </div>
+    </div>
+<!-- 底部基本信息 -->
+    <div class="lia-info">
+        <div class="tit">重庆市*********委员会</div>
+        <ul class="other-info">
+            <li>网站标识码: 1********1</li>
+            <li>ICP备案: 渝ICP备12****34号-5</li>
+            <li>渝公网安备12**********34号</li>
+        </ul>
+        <nav>
+            <div class="a">
+                <a href="javascript:;">网站地图</a>
+                <span>|</span>
+                <a href="javascript:;">版权声明</a>
+                <span>|</span>
+                <a href="javascript:;">联系我们</a>
+            </div>
+            <span>联系方式：023-12****34</span>
+        </nav>
+    </div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+// 房源发布
+.mainbody-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.signon-wrapper{
+    width: 1086px;
+    height: 800px;
+    padding: 0 50px;
+
+    .process-bar{
+        width: 750px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 40px auto;
+
+        .prc{
+            width: 80px;
+            text-align: center;
+
+            .lit-ball{
+                height: 40px;
+                line-height: 40px;
+                width: 40px;
+                background-color: rgb(8, 99, 184);
+                border-radius: 50%;
+                border: 5px solid rgb(128, 185, 238);
+                margin: 0 auto;
+                margin-top: 5px;
+                font-size: 20px;
+                font-weight: 600;
+                color: aliceblue;
+            }
+            .ball{
+                height: 50px;
+                line-height: 50px;
+                width: 50px;
+                background-color: rgb(146, 146, 146);
+                border-radius: 50%;
+                margin: 0 auto;
+                margin-top: 5px;
+                font-size: 20px;
+                font-weight: 600;
+                color: aliceblue;
+            }
+        }
+
+        .row-line{
+            height: 10px;
+            width: 200px;
+            background-color: rgb(146, 146, 146);
+            margin: 0 -12px;
+            margin-top: 40px;
+        }
+    }
+
+    .input-list{
+        width: 800px;
+        margin-left: 120px;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        
+        li{
+            text-align: right;
+            font-size: 18px;
+            font-weight: 600;
+            height: 30px;
+            line-height: 30px;
+
+            span{
+                color: red;
+            }
+
+            select{
+                width: 560px;
+                height: 100%;
+                line-height: 100%;
+                font-size: 19px;
+                border-radius: 5px;
+            }
+
+            input{
+                width: 560px;
+                height: 100%;
+                line-height: 100%;
+                font-size: 18px;
+                border-width: 1px;
+                border-radius: 5px;
+            }
+        }
+        .input-tit{
+            text-align: left;
+            font-size: 24px;
+            color: rgb(88, 88, 88);
+            border-left: 5px solid rgb(1, 62, 119);
+            border-bottom: 2px solid rgb(1, 62, 119);
+            padding-left: 10px;
+        }
+        
+
+        .sub-btn{
+            margin: 0 auto;
+
+            button{
+                width: 110px;
+                height: 35px;
+                line-height: 35px;
+                font-size: 20px;
+                border-radius: 5px;
+                border: 1px solid rgb(214, 214, 214);
+                box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+                background-color: rgb(22, 182, 70);
+                color: #fff;
+            }
+
+            button:hover{
+                background-color: rgb(104, 180, 231);
+                color: #fff;
+            }
+        }
+    }
+}

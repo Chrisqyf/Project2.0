@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重庆市长租公寓综合信息服务平台</title>
+    <!-- 引入重置样式表 -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- 引入公共样式表 -->
+    <link rel="stylesheet" href="./css/base.css">
+    <!-- 引入当前页面样式表 -->
+    <link rel="stylesheet" href="./css/fund.css">
+    <link rel="stylesheet" href="./css/第三方服务-商家中心-商家认证.css">
+    <!-- 引入图标字体库 -->
+    <link rel="stylesheet" href="./fa/css/all.min.css">
+    <!-- <link rel="icon" href="./img/icon/stage.ico"> -->
+
+    <script type="text/javascript" src="js/tools.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            
+            /* 
+                我们每一个菜单都是一个div
+                    当div具有collapsed这个类时，div就是折叠的状态
+                    当div没有这个类时，div就是展开的状态
+            */
+            
+            /* 
+                点击菜单，切换菜单的显示状态
+            */
+            
+            // 获取所有class为menuSpan的元素
+            var menuSpan = document.querySelectorAll(".menuSpan");
+            
+            // 定义一个变量，来保存当前打开的菜单
+            var openDiv = menuSpan[0].parentNode;
+
+            // 为span绑定单机响应函数
+            for(var i=0;i<menuSpan.length;i++){
+                menuSpan[i].onclick = function(){
+                    
+                    // this代表当前点击的span
+                    // 获取当前span的父元素
+                    var parentDiv = this.parentNode;
+                    
+                    // 切换菜单的显示状态
+                    toggleMenu(parentDiv);
+                    
+                    // 判断openDiv和parentDiv是否相同
+                    if(openDiv != parentDiv && !hasClass(openDiv,"collapsed")){
+                        // 打开菜单以后，关闭之前打开的菜单
+                        // 为了可以统一处理动画过渡效果，我们希望在这将addClass改为toggleClass
+                        // addClass(openDiv,"collapsed");
+                        // 此处toggleClass()不具有任何移除功能
+                        // toggleClass(openDiv,"collapsed");
+                        // 切换菜单的显示状态
+                        toggleMenu(openDiv);
+                    };
+                    
+                    // 修改openDiv为当前的菜单
+                    openDiv = parentDiv;
+                };
+            };
+            
+            
+            /* 
+                用来切换菜单折叠和显示状态
+            */
+            function toggleMenu(obj){
+                // 在切换类之前，获取元素的高度
+                var begin = obj.offsetHeight;
+                
+                // 关闭obj
+                toggleClass(obj,"collapsed");
+                
+                // 在切换类之后获取一个高度
+                var end = obj.offsetHeight;
+                
+                // 动画效果就是将高度从begin向end过渡
+                // 将元素的高度重置为begin
+                obj.style.height = begin + "px";
+                
+                // 执行动画，从begin向end过渡
+                move(obj,"height",end,10,function(){
+                    // 动画执行完毕，内联样式已经没有存在的意义了，删除之
+                    obj.style.height = "";
+                });
+                
+            };
+
+            // 入驻须知，确定机制
+            /*
+                当垂直滚动条滚动到底时是表单项可用
+                onscoll
+                    该事件会在元素的滚顶条滚动时触发
+            */
+            
+            // 获取id为info的p元素
+            var infos = document.getElementById("infos");
+            // 获取两个表单项
+            var inputs = document.getElementsByClassName("confirmed-input");
+            // 为info绑定一个滚动条滚动的事件
+            infos.onscroll = function(){
+                // 检查滚动条是否滚动到底了
+                if(this.scrollHeight - this.scrollTop - this.clientHeight - 1<0){
+                    // 滚动条到底时，使表单项可用
+                    /*
+                        disabled属性可以设置一个元素是否禁用，
+                            如果设置为true，则元素禁用
+                            如果设置为false，则元素可用
+                    */
+                    inputs[0].disabled = false;
+                    inputs[1].disabled = false;
+                };
+            };
+        };
+    </script>
+</head>
+<body>
+<!-- 顶部基本信息 -->
+    <!-- 外部容器 -->
+    <div class="top-info-wrapper">
+        <!-- 内部容器 -->
+        <div class="top-info w">
+            <!-- 左侧平台信息 -->
+            <div class="left-info">
+                <img src="./img/icon/a-realestatepropertyhandoverhouse.png">
+                <!-- 左侧名称 -->
+            <span>重庆市长租公寓综合信息服务平台</span>
+            </div>
+            <!-- 右侧服务电话 -->
+            <div class="right-tel">
+                <div class="icon">
+                    <img src="./img/icon/Slice5.png">
+                </div>
+                <div class="tel-num">
+                    <span>房协房地产租赁专业委员会：878***980</span>
+                    <span>长租公寓信息平台客服：877***244</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 头部导航条 -->
+    <!-- 外部容器 -->
+    <div class="header-wrapper">
+        <!-- 头部导航条 -->
+        <div class="header w">
+            <!-- 左侧服务 -->
+            <ul class="left-service">
+                <li><a href="index.html">首页</a></li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="个体服务-我要租房-房源展示.html">
+                        个体服务
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="个体服务-我要租房-房源展示.html">我要租房</a></li>
+                        <li><a href="个体服务-我要出租-入驻企业.html">我要出租</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="企业服务-用户认证-企业界面.html">
+                        企业服务
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="企业服务-用户认证-企业认证-1.html">用户认证</a></li>
+                        <li><a href="企业服务-经营支持-政策合作.html">经营支持</a></li>
+                        <li><a href="企业服务-房源管理-房源市场.html">房源管理</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="第三方服务-服务大厅.html" style="background-color: rgba(33, 143, 216 ,.8);">
+                        第三方服务
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="第三方服务-商家中心-商家认证.html">商家中心</a></li>
+                        <li><a href="第三方服务-服务大厅.html">服务大厅</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="法律帮助-维权须知.html">
+                        法律帮助
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="法律帮助-维权须知.html">维权须知</a></li>
+                        <li><a href="法律帮助-咨询通道-法律咨询.html">咨询通道</a></li>
+                        <li><a href="法律帮助-用户维权-用户维权.html">用户维权</a></li>
+                        <li><a href="法律帮助-合同管理-合同备案.html">合同管理</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li class="relative">
+                    <a href="信息公示-行业新闻.html">
+                        信息公示
+                    </a>
+                    <ul class="down-bar">
+                        <li><a href="信息公示-行业新闻.html">行业新闻</a></li>
+                        <li><a href="信息公示-政策公开.html">政策公开</a></li>
+                        <li><a href="信息公示-市场公开.html">市场公示</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li><a href="服务指南.html">服务指南</a></li>
+            </ul>
+            <!-- 右侧用户信息 -->
+            <div class="user-info">
+                <!-- <i class="fas fa-user-circle"></i> -->
+                <img src="./img/icon/user.png">
+                <a href="登陆页面.html">登录</a>
+                <div class="line">|</div>
+                <a href="个人注册.html">注册</a>
+            </div>
+        </div>
+    </div>
+<!-- 中部主体 -->
+    <div class="mainbody-wrapper">
+    <!-- 侧边导航条 -->
+        <!-- 外部容器 -->
+        <div class="left-nav-wrapper">
+            <!-- 二级菜单 -->
+            <div id="my_menu" class="sdmenu">
+                <div>
+                    <span class="menuSpan">商家中心</span>
+                    <a href="第三方服务-商家中心-商家认证.html" style="background-color: #3499dd; color: #fff;">商家认证</a>
+                    <a href="第三方服务-商家中心-用户界面.html">用户界面</a>
+                </div>
+                <div class="collapsed">
+                    <span class="menuSpan">服务大厅</span>
+                    <a href="第三方服务-服务大厅.html">服务大厅</a>
+                    <a href="第三方服务-用户须知.html">用户须知</a>
+                </div>
+            </div>
+        </div>
+        <div class="mainbody-right">
+            <div class="thead">
+                <div class="title">
+                    商家信息备案
+                </div>
+                <!-- <div class="tips">
+                    第一步：上传基本信息
+                </div> -->
+            </div>
+            <table>
+                <tr>
+                    <td>企业名称：</td>
+                    <td><input type="text" style="width: 200px;"/></td>
+                    <td>工商登记注册号：</td>
+                    <td><input type="text" style="width: 200px;" placeholder="务必填入准确"/></td>
+                </tr>
+                <tr>
+                    <td>企业类型：</td>
+                    <td><input type="text" style="width:200px;"/></td>
+                    <td>工商登记时间：</td>
+                    <td><input type="date" style="width: 200px;"/></td>
+                </tr>
+                <tr>
+                    <td>服务提供方式：</td>
+                    <td>
+                        <select style="height: 25px; width:200px">
+                            <option value="1" selected>请选择服务类型</option>
+                            <option value="2">线上服务</option>
+                            <option value="3">线下服务</option>
+                            <option value="4">线上+线下服务</option>
+                        </select>
+                    </td>
+                    <td>信息化经营：</td>
+                    <td>
+                        <select style="height: 25px; width:200px">
+                            <option value="1" selected>请选择“是”或“否”</option>
+                            <option value="2">是</option>
+                            <option value="3">否</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>单位联系人：</td><td><input type="text" name="" style="width: 200px;"/></td>
+                    <td>联系方式：</td><td><input type="text" name="" style="width: 200px;" placeholder="请输入电话号码"/></td>
+                </tr>
+            </table>
+            <div class="clause-bar">
+                <h2>商家入驻须知：</h2>
+                <p id="infos">
+                    平台与第三方机构合作协议书<br>
+                    第三方机构入驻平台协议书<br>
+                    (一)、合作事项<br>
+                    (1)、甲方提供产品服务，乙方通过其所属的重庆市长租公寓信息服务平台(以下简称平台)为甲方产品提供网络平台和其他推广服务。<br>
+                    (2)、甲方可在平台上进行商铺发布及管理、推广服务、达成交易意向。<br>
+                    (二)、入驻商家基本条件<br>
+                    (1)、有良好的合作意愿，能提供优质的服务，保证合作的顺利进行，并保证提供良好的售后服务;<br>
+                    (2)、甲方申请成为平台入驻商家，应该满足以下条件:<br>
+                    1.甲方已依照中华人民共和国法律注册并领取合法有效的营业执照及其他经营许可;<br>
+                    2.甲方申请经营的服务或服务合法，资质齐全;<br>
+                    3.甲方同意本协议及平台相关规则。<br>
+                    4.甲方须保证所提交予乙方的所有材料真实、准确、合法、有效。如相关材料有变更或更新时应及时通知乙方,若导致甲方不符合本协议所规定入驻条件的,乙方有权单方全部或部分限制甲方经营,直至终止本协议。<br>
+                    (3)、甲方应在签订本协议时向乙方提供(经乙方认可的)包括但不限于以下证明材料复印件:<br>
+                    1.营业执照(包括个体户营业执照)、税务登记证;<br>
+                    2.拥有注册商标或者品牌，或者拥有正规的品牌授权书。<br>
+                    3.服务质检报告、报关单、检验检疫证书、产品来源地证明等<br>
+                    (4)、注意事项:<br>
+                    1.平台网上域名使用费:是指甲方使用乙方(平台)网上商城二级域名费用，该域名使用费为免费使用。<br>
+                    2.客户销售提成:甲方在使用乙方平台经营销售所产生的交易，乙方不另外收取相关提成费用。<br>
+                    3.平台不支持跨境贸易行为，包括但不仅限于:(保税区出货、海外直邮、香港直邮、一般贸易等)<br>
+                    (5)、甲方承诺:<br>
+                    1. 所有服务保障服务质量、承诺售后服务，必要时能提供销售发票;<br>
+                    2.实体店地址变更应及时告知乙方。<br>
+                    (三)、入驻商铺类型<br>
+                    1.展示型商铺;<br>
+                    2.销售型商铺。<br>
+                    (四)、商铺入驻开通流程<br>
+                    1.甲乙双方签署本协议;<br>
+                    2.甲方根据所选择商铺类型，提交相应的证明材料复印件;<br>
+                    3.在乙方平台注册，获取管理员账号;<br>
+                    4.甲方阅读平台入驻协议。<br>
+                    5.乙方审核通过后，甲方即可发布服务并展示经营活动。<br>
+                    (五)、双方权利义务<br>
+                    甲方权利义务:<br>
+                    1.在本协议第一条规定范围内，甲方自行开拓市场与发展业务，不得以欺诈、胁迫等不正当手段损害客户或甲方的利益与声誉;
+                    2.甲方可随时根据指示改变密码。甲方将对用户名和密码安全负全部责任。另外，每个用户都要对以其用户名进行的所有活动和事件负全责。
+                    3.甲方在使用过程中如发现任何非法盗用乙方账号出现安全漏洞等情况，应立即通知乙方;
+                    4.甲方需要自行采购经营服务，并负责其快递物流、清关、发货、售后等服务，如在售后服务中跟客户出现沟通问题，甲方可以咨询乙方，乙方根据实际情况给予技术上的帮助与协调。
+                    5.甲方保证其所经营销售的产品均为合法渠道的正品正货，必要时需要开具销售发票。甲方所有经营活动必须完全符合中国有关法律、法规、行政规章等的规定。如因甲方违反上述规定给乙方带来任何损害，甲方应承担所有法律责任并赔偿由此给甲方造成的损失;
+                    6.甲方保证在平台发布的服务信息真实、准确，符合平台规则及国家相关法律法规的规定，与实际出售的服务一致，不含任何夸大或虚假内容，并对服务信息承担独立的完全的法律责任。
+                    7.甲方保证对在平台经营的服务或服务拥有合法销售权，服务质量合格，符合国家相关质量标准，不侵犯任何第三方的合法权利，并对其服务质量及服务合法性独立承担全部法律责任。
+                    8.甲方保证需提供有盖章的单位资质证明复印件，包括工商登记证明、税务登记证明、卫生许可证及相关资质，因甲方资质问题贰使本协议无法正常履行的结果由甲方负责。
+                    9.在协议有效期内，甲方不得向与乙方构成商业竞争关系的企业、商业机构或者组织提供有关乙方相关信息或者资料，否则对乙方造成损失的，由甲方负责赔偿。
+                    10. 凡甲方已经在乙方上线的服务及相应服务内容，在双方规定的上线时间内，未经乙方同意甲方不得进行任何形式直接或间接的取消或变更，如因特殊原因甲方确实需要进行变更或取消的，由甲方至少提前5个工作日告知甲方，并由双方另行商议对页面做相应的调整后方可进行变更。
+                    11. 乙方系统通知甲方下单后，如甲方因服务售罄原因，不能提供的，甲方应立即电话通知。下单的消费者和甲方，并做好合理的安抚和处理。<br>
+                    乙方权利义务:<br>
+                    1.乙方根据本协议向甲方提供电子商务平台及相应技术支持服务，尽力维护平台的正常稳定运行，并努力提升和改进技术，对平台功能及服务进行更新、升级，不断提升平台性能和合作效率。
+                    2.如甲方是托管商铺，乙方应及时为甲方进行店铺更新并实时进行日常管理;
+                    3.在本协议有效期限内，乙方有权根据国家相关法律法规、政策及平台运营情况，对公示于平台的规则、流程、收费标准、商铺入驻条件等进行更新、调整。
+                    4.甲方与其客户交易完成后，客户确认服务完成，平台系统会在24小时内给甲方账户通知。若交易已经完成，甲方其客户确认服务完成后，平台系统会默认双方均满意此次交易。后续如有问题出现，则需要甲方与其客户自行商议并解决，如出现双方无法达成共识的情况，可选择让平台协议解决。
+                    5.乙方不对用户所发布信息的.删除或储存失败负责。乙方有判定用户的行为是否符合乙方服务条款的要求和精神的保留权利，如果用户违背了服务条款的规定，乙方有中断对其提供网络服务的权利。
+                    6.如因不可抗力或其他无法控制的原因使乙方销售系统崩溃或无法正常使用导致网上交易无法完成或丢失有关的信息、记录等，乙方不承担责任。但是乙方会尽可能合理地协助处理善后事宜，并努力使客户免受经济损失。<br>
+                    (六)、合作约定<br>
+                    1.双方的品牌归各自所有。<br>
+                    甲、甲双方均不可在对方未经授权的情况下使用对方名称、LOGO以及涉及相关内容的销售、促销宣传材料及广告、报纸、杂志、宣传单等。如因此产生的不良后果及损失由违约方自行全部承担。<br>
+                    2.任何双方违反本协议所规定的义务导致另一方受到包括但不限于投诉、举报、诉讼或处罚、赔偿等损失，违约方在收到守约方要求纠正其违法行为的书面通知之日，应立即停止其违约行为，并在10日内赔偿守约方因此受到的损失。<br>
+                    3.本协议任何一方均应对其获得对方的业务、经营、财务状况和其他保密资料予以严格保密，不得以任何形式向任何第三方披露。如因任何一方未能履行保密义务而给其他方造成任何损失的，应承担赔偿责任。<br>
+                    (七)、协议期限<br>
+                    本协议有效期为一年，自签订之日起生效。有效期满后，双方可视合作情况续约<br>
+                    (八)、协议变更、终止及违约责任<br>
+                    1.甲乙双方应本着诚实信用的原则履行本协议。任何一方在履约过程中采用欺诈、胁迫或者的手段，另一方均可以解除本协议并要求对方赔偿由此造成的损失;<br>
+                    2.在协议执行期间，如果双方或一方认为需要终止，应提前一个月通知对方，双方在财务结算完毕、各自责任明确履行之后，方可终止协议。某方擅自终止本协议，给对方造成损失的，应赔偿对方损失;<br>
+                    3.经双方协商达成一致，可以对本协议有关条款进行变更，但应当以书面形式确认;<br>
+                    4.一方变更通讯地址或其它联系方式，应自变更之日起十日内，将变更后的地址、联系方式通知另一方，否则变更方应对此造成的一切后果承担责任; <br>
+                    5.如因客观情况发生重大变化，致使本协议无继续法履行的，经甲乙双方协商同意，可以变更或者终止协议的履行。<br>
+                    (九)、保密条款<br>
+                    1.甲、乙双方所提供给对方的一切资料、技术和对项目的策划设计要严格保密，并只能在合作双方公司的业务范围内使用;<br>
+                    2.甲、乙双方均应对在合作过程中所知悉的对方的商业和技术秘密承担保密义务。保密条款不受本协议期限的限制。<br>
+                    (十)、争议解决<br>
+                    在本协议执行期间如果双方发生争议，双方应友好协商解决。如果协商不成，双方同意提交予仲裁委员会进行仲裁，接受其仲裁规则，并服从该仲裁裁决，仲裁费由败诉方承担。争议的解决适用中华人民共和国法律、法规、条例和计算机行业惯例。<br>
+                    (十一)协议生效及其他<br>
+                    1.本协议由甲方勾选“同意”后生效。<br>
+                    2.本协议正本一式两份，甲乙双方各执一份。
+                </p>
+                <div class="btn-bar">
+                    <input type="checkbox" disabled="disabled" class="confirmed-input"/>我已仔细阅读协议，一定遵守
+                    &nbsp;
+                    <input type="submit" value="保存并提交" disabled="disabled" class="confirmed-input"/>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 底部基本信息 -->
+    <div class="lia-info">
+        <div class="tit">重庆市*********委员会</div>
+        <ul class="other-info">
+            <li>网站标识码: 1********1</li>
+            <li>ICP备案: 渝ICP备12****34号-5</li>
+            <li>渝公网安备12**********34号</li>
+        </ul>
+        <nav>
+            <div class="a">
+                <a href="javascript:;">网站地图</a>
+                <span>|</span>
+                <a href="javascript:;">版权声明</a>
+                <span>|</span>
+                <a href="javascript:;">联系我们</a>
+            </div>
+            <span>联系方式：023-12****34</span>
+        </nav>
+    </div>
+</body>
+</html>

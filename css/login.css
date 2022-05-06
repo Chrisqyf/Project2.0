@@ -1,0 +1,210 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(200deg,#47ace7,#e3eeff);
+}
+.container{
+    background-color: rgba(255, 255, 255, 0.384);
+    width: 1000px;
+    height: 415px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+.form-box{
+    position: absolute;
+    top: -15%;
+    left: 20px;
+    background-color: #21bde4;
+    /* width: 350px; */
+    height: 500px;
+    border-radius: 5px;
+    box-shadow:2px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transition: 0.5s ease-in-out;
+
+}
+.login-box{
+    /* 弹性布局 垂直排列 */
+    top: 100px;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    /* width: 100%; */
+}
+.company-box{
+    padding: 40px;
+    top: 100px;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 auto;
+    align-items: center;
+    /* width: 100%; */
+}
+.hidden{
+    display: none;
+    transition: 0.5s;
+}
+h1{
+    text-align: center;
+    margin-bottom: 25px;
+}
+input{
+    background-color: transparent;
+    width: 70%;
+    border: none;
+    /* 下边框样式 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 10px 0;
+    text-indent: 10px;
+    margin: 8px 0;
+    font-size: 14px;
+}
+input::placeholder{
+    color:black;
+}
+input:focus{
+    color: #a262ad;
+    outline: none;
+    border: 1px solid #a262ad80;
+    transition: 0.5s;
+}
+input:focus::placeholder{
+    opacity: 0;
+}
+.form-box button{
+    width: 70%;
+    margin-top: 35px;
+    background-color: #f6f6f6;
+    outline: none;
+    border-radius: 8px;
+    padding: 13px;
+    color: #534755;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+}
+.form-box button:hover{
+    background-color: #abd8e4;
+    color: #f6f6f6;
+    transition: background-color 0.5s ease;
+}
+.con-box{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.con-box.left{
+    left: -5%;
+}
+.con-box.right{
+    right: 5%;
+}
+.con-box h2{
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-top: 4px;
+}
+.con-box p{
+    padding-top: 5px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.con-box span{
+    width: 150px;
+    height: 150px;
+    opacity: 0.9;
+    margin: 40px 0;
+}
+.con-box img{
+    width: 300px;
+    height: 200px;
+}
+.con-box button{
+    margin-top: 3%;
+    background-color: #fff;
+    border: 1px solid #d3b7d8;
+    padding: 6px 10px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    outline: none;
+    cursor: pointer;
+}
+.con-box button:hover{
+    background-color: #abd8e4;
+    color: #f6f6f6;
+    transition: background-color 0.5s ease;
+}
+/* 底部信息 */
+.lia-info{
+    width: 100%;
+    height: 85px;
+    bottom: 0;
+    margin-top: 50px;
+    background-color: #315b92;
+    border-top: 1px solid #000;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+    .tit,.other-info,nav{
+        height: 20px;
+        line-height: 20px;
+        width: 650px;
+        margin: 0 auto;
+    }
+
+    .tit{
+        text-align: center;
+        font-size: 14px;
+        color: #000;
+    }
+
+    .other-info{
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 12px;
+        color: #000;
+    }
+
+    nav{
+        display: flex;
+        justify-content: space-evenly;
+    }
+        nav span{
+            padding: 0 5px;
+            font-size: 12px;
+        }
+    
+        nav a{
+            color: #000;
+            font-size: 12px;
+        }
